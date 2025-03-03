@@ -34,7 +34,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 }
 
 export const metadata = {
-  title: 'Dify',
+  title: '小智随行',
 }
 
 export default Layout

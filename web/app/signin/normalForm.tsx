@@ -28,9 +28,10 @@ const NormalForm = () => {
   const [showORLine, setShowORLine] = useState(false)
   const [allMethodsAreDisabled, setAllMethodsAreDisabled] = useState(false)
   const [workspaceName, setWorkSpaceName] = useState('')
-
-  const isInviteLink = Boolean(invite_token && invite_token !== 'null')
-
+  const register = (invite)=>{
+    console.log(invite)
+  }
+  let isInviteLink = Boolean(invite_token && invite_token !== 'null')
   const init = useCallback(async () => {
     try {
       if (consoleToken && refreshToken) {
@@ -185,28 +186,15 @@ const NormalForm = () => {
             </div>
           </>}
           <div className="w-full block mt-2 system-xs-regular text-text-tertiary">
-            {t('login.tosDesc')}
-            &nbsp;
-            <Link
-              className='system-xs-medium text-text-secondary hover:underline'
-              target='_blank' rel='noopener noreferrer'
-              href='https://dify.ai/terms'
-            >{t('login.tos')}</Link>
-            &nbsp;&&nbsp;
-            <Link
-              className='system-xs-medium text-text-secondary hover:underline'
-              target='_blank' rel='noopener noreferrer'
-              href='https://dify.ai/privacy'
-            >{t('login.pp')}</Link>
+            {/*{t('login.tosDesc')}*/}
+            {/*&nbsp;*/}
+            {/*<Link*/}
+            {/*  className='system-xs-medium text-text-secondary hover:underline'*/}
+            {/*  target='_blank' rel='noopener noreferrer'*/}
+            {/*  href='https://dify.ai/terms'*/}
+            {/*>{t('login.tos')}</Link>*/}
+            {/*&nbsp;&&nbsp;*/}
           </div>
-          {IS_CE_EDITION && <div className="w-hull block mt-2 system-xs-regular text-text-tertiary">
-            {t('login.goToInit')}
-            &nbsp;
-            <Link
-              className='system-xs-medium text-text-secondary hover:underline'
-              href='/install'
-            >{t('login.setAdminAccount')}</Link>
-          </div>}
 
         </div>
       </div>

@@ -52,6 +52,7 @@ class BasePluginManager:
         Make a request to the plugin daemon inner API.
         """
         url = URL(str(plugin_daemon_inner_api_baseurl)) / path
+        print(f"调用连接 {url}")
         headers = headers or {}
         headers["X-Api-Key"] = plugin_daemon_inner_api_key
         headers["Accept-Encoding"] = "gzip, deflate, br"
@@ -64,6 +65,7 @@ class BasePluginManager:
                 method=method, url=str(url), headers=headers, data=data, params=params, stream=stream, files=files
             )
         except requests.exceptions.ConnectionError:
+            print(f"11111111 错误信息  {url}")
             logger.exception("Request to Plugin Daemon Service failed")
             raise PluginDaemonInnerError(code=-500, message="Request to Plugin Daemon Service failed")
 
